@@ -1,0 +1,6 @@
+services:
+  web:
+    image: example_http
+    ports:
+      - 10000:10101
+    restart: always
