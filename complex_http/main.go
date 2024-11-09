@@ -2,13 +2,14 @@ package main
 
 import (
 	"net/http"
+	"os"
 	"time"
 
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
 )
 
-//ADD env variable and persistent storage
+//ADD persistent storage
 
 func main() {
 	println("Starting webserver")
@@ -20,7 +21,9 @@ func main() {
 		w.Write([]byte("Hello World through the Web from Go!"))
 	})
 
-	router.Get("/time", func(w http.ResponseWriter, r *http.Request) {
+	timeRoute := os.Getenv("TIME_ROUTE")
+
+	router.Get("/"+timeRoute, func(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte("Aktueller Zeitpunkt: " + time.Now().Local().Format("01.02.2006 15:04:05")))
 	})
 
