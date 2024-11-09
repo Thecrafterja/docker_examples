@@ -8,6 +8,8 @@ import (
 	"github.com/go-chi/chi/v5/middleware"
 )
 
+//ADD env variable and persistent storage
+
 func main() {
 	println("Starting webserver")
 
