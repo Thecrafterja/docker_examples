@@ -10,6 +10,11 @@ COPY main.go .
 
 RUN CGO_ENABLED=0 GOOS=linux go build -o /httpserver
 
+RUN mkdir data
+RUN touch data/count.txt
+
+VOLUME [ "/app/data/" ]
+
 ENV TIME_ROUTE="time"
 
 EXPOSE 10101
