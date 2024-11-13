@@ -5,6 +5,9 @@ Builds the docker image. A Dockerfile is required in the current directory.
 ```docker run <TAGNAME>```
 Creates a container from the image with <TAGNAME> and starts it.
 
+```docker pull ```
+Add description
+
 ```docker image ls -a```
 Shows all images that are stored on the system where the docker daemon is running.
 
