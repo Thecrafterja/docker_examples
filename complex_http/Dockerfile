@@ -8,15 +8,14 @@ RUN go mod download
 
 COPY main.go .
 
+# at buildtime
 RUN CGO_ENABLED=0 GOOS=linux go build -o /httpserver
 
-RUN mkdir data
-RUN touch data/count.txt
+# add here
+# create count.txt
+# volume
+# environment variable
+# ports
 
-VOLUME [ "/app/data/" ]
-
-ENV TIME_ROUTE="time"
-
-EXPOSE 10101
-
+# at runtime
 CMD [ "/httpserver" ]
