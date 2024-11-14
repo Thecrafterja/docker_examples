@@ -1,11 +1,30 @@
 services:
-  web:
-    image: example_http
+  wordpress:
+    image: wordpress
+    restart: always
     ports:
-      - 10000:10101
+      - 10080:80
     environment:
-      - TIME_ROUTE=times
-    restart: always
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: system_user
+      WORDPRESS_DB_PASSWORD: super_secret_password
+      WORDPRESS_DB_NAME: wordpress
+    volumes:
+      - wordpress:/var/www/html
+    depends_on:
+      - db
+
   db:
-    image: postgres
+    image: mysql:8.0
     restart: always
+    environment:
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: system_user
+      MYSQL_PASSWORD: super_secret_password
+      MYSQL_RANDOM_ROOT_PASSWORD: '1'
+    volumes:
+      - db:/var/lib/mysql
+
+volumes:
+  wordpress:
+  db:
