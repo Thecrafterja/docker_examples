@@ -9,8 +9,8 @@ Builds the docker image. A Dockerfile is required in the current directory.
 ```docker run <TAGNAME>```
 Creates a container from the image with <TAGNAME> and starts it.
 
-```docker pull ```
-Add description
+```docker pull <NAME>```
+Pulls the selected docker image from the registry.
 
 ```docker image ls -a```
 Shows all images that are stored on the system where the docker daemon is running.
@@ -31,4 +31,4 @@ Starts a docker compose, but does not attach the compose's console to the termin
 Stops and removes all containers and networks from the docker compose.
 
 ```docker exec -it <CONTAINER_ID> sh```
-Opens the container shell.
+Opens the container's shell.
