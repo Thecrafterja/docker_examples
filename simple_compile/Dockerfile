@@ -1,5 +1,6 @@
 FROM golang:1.23
 
+# sets current directory in container's filesystem
 WORKDIR /app
 
 COPY . .
